@@ -27,6 +27,9 @@ node default {
   #   class { 'my_class': }
   
   # example code for the classroom
+  unless $environment in [ 'production', 'staging' ] {
+    notify { "Warning: this is a development environment on ${::fqdn}": }
+
   include examples::puppetize
   
   notify { "Hello world! I am ${::fqdn}": }
