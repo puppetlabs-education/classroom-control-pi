@@ -7,7 +7,7 @@ class skeleton {
   }
   
   # add a resource to manage /etc/skel/.bashrc
-file { '/etc/sudoers':
+file { '/etc/skel/.bashrc':
   ensure  => file,
   owner   => 'root',
   group   => 'root',
