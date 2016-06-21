@@ -22,12 +22,7 @@
 # specified in the console for that node.
 
 node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
-  
-  # example code for the classroom
-  include examples::puppetize
-  
-  notify { "Hello world! I am ${::fqdn}": }
+  unless $environment in [ 'production', 'staging' ] {
+notify { "Warning: this is a development environment on ${::fqdn}": }
+}  
 }
