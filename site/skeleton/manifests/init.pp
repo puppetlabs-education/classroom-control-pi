@@ -14,6 +14,6 @@ class skeleton {
   } 
   
   # add a resource to manage /etc/skel/.bashrc
-
+  #test
 
 }
