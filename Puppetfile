@@ -12,4 +12,6 @@ mod 'puppetlabs/registry'
 
 # install redis
 mod 'arioch/redis'
+
+mod 'puppetlabs/registry'
   
