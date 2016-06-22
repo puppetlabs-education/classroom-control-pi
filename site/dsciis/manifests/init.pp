@@ -8,8 +8,8 @@ class dsciis {
 
   # Translate these DSC Powershell resources into Puppet code below
 #  dsc_WindowsFeature iis {
-#    dsc_Ensure    = 'Present'
-#    dsc_Name      = 'Web-Server'
+#    dsc_Ensure    = 'Present',
+#    dsc_Name      = 'Web-Server',
 #  }
   
 #  dsc_WindowsFeature iisscriptingtools {
