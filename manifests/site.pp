@@ -22,5 +22,5 @@
 # specified in the console for that node.
 
 node default {
-  notify { "The primary disk is ${::disks['sda']['size']} in size.";}
+  notify { "The primary disk is ${::disks['sda']['size']} in size.":}
 }
