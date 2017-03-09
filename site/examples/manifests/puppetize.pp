@@ -10,19 +10,19 @@ class examples::puppetize {
     }
   }
   else {
-    # This directory does not exist on the OpenTable Vagrant box,
-    # even though the Administrator account exists.
-    file { 'C:/Users/Administrator':
-      ensure  => directory,
-      owner   => 'Administrator',
-      group   => 'Administrator',
-      mode    => '0775',
+    # The OpenTable vagrant box that we're using for Windows 2012 R2
+    # has an incompletely-configured Administrator account, and we log
+    # in as "vagrant/vagrant". The vagrant user is an administrator, so
+    # substituting in this username instead of Administrator works.
+    $admin_user = $virtual ? {
+      'virtualbox' => 'vagrant',
+      default      => 'Administrator',
     }
 
-    file { 'C:/Users/Administrator/example.pp':
+    file { "C:/Users/${admin_user}/example.pp":
       ensure  => file,
-      owner   => 'Administrator',
-      group   => 'Administrator',
+      owner   => $admin_user,
+      group   => $admin_user,
       mode    => '0664',
       content => epp('examples/example.epp'),
     }

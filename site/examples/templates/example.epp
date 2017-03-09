@@ -7,8 +7,17 @@ case $osfamily {
     $mode  = '0644'
   }
   'windows': {
-    $path  = 'C:/Users/Administrator/Desktop/README.txt'
-    $owner = 'Administrator'
+    # The OpenTable vagrant box that we're using for Windows 2012 R2
+    # has an incompletely-configured Administrator account, and we log
+    # in as "vagrant/vagrant". The vagrant user is an administrator, so
+    # substituting in this username instead of Administrator works.
+    $admin_user = $virtual ? {
+      'virtualbox' => 'vagrant',
+      default      => 'Administrator',
+    }
+
+    $path  = "C:/Users/${admin_user}/Desktop/README.txt"
+    $owner = $admin_user
     $group = 'Administrators'
     $mode  = '0664'
   }
