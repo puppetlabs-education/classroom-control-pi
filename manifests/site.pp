@@ -22,6 +22,13 @@
 # specified in the console for that node.
 
 node default {
+unless $environment in [ 'production', 'staging' ] {
+notify { "Warning: this is a development environment on ${::fqdn}": }
+}
+# ...
+}
+
+node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
@@ -29,5 +36,5 @@ node default {
   # example code for the classroom
   include examples::puppetize
   
-  notify { "This is the default message from the production environment": }
+  notify { "Hello world! I am ${::fqdn}": }
 }
