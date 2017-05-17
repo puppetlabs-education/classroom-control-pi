@@ -28,6 +28,7 @@ node default {
   
   # example code for the classroom
   include examples::puppetize
-  
-  notify { "This is the default message from the production environment": }
+unless $environment in ['production','staging']{
+  notify { "Warning: this is a development envrionment on ${::fqdn}": }
+}
 }
