@@ -5,6 +5,4 @@ class profile::tuning::windows {
       data   => '1',
     }
 
-  # Add more registry resources as directed
-  
 }
