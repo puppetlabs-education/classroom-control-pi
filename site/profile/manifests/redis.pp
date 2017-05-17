@@ -7,5 +7,5 @@ class profile::redis {
     # what parameter should we pass to set maxmemory to 10mb?
     
   }
-  
+  contain redis
 }
