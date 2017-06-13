@@ -31,3 +31,7 @@ node default {
   
   notify { "This is the default message from the production environment": }
 }
+
+node pcuenco.puppetlabs.vm {
+   notify { "This will only be enforced on Linux node.":}
+}
