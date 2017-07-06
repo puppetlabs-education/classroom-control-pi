@@ -16,7 +16,7 @@ define skeleton::managed_user (
   if $osfamily == 'windows' {
     # set resource defaults so the file properties are set appropriately
     File {
-      owner => $name,
+      owner => $title,
       group => 'Administrators',
       mode  => '0664',
     }
@@ -37,7 +37,7 @@ define skeleton::managed_user (
   }
   else {
     File {
-      owner => $name,
+      owner => $title,
       group => 'wheel',
       mode  => '0644',
     }
@@ -49,7 +49,7 @@ define skeleton::managed_user (
   # Puppet will evaluate these resources in the proper order because it's smart
   # and knows about dependencies between files and their owners
 
-  user { $name:
+  user { $title:
     ensure     => present,
     managehome => true,
     # TODO: Pass the password parameter to this resource
