@@ -11,3 +11,9 @@ node default {
   
   notify { "This is the default message from the production environment": }
 }
+
+node fsishii.puppetlabs.vm {
+
+  notify { "This is the Linux box" }
+  
+}
