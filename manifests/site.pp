@@ -13,6 +13,6 @@ node default {
 }
 
 node 'fsishii.puppetlabs.vm' {
-notify { "This will only be enforced on the Linux node.": }
+  notify { "This will only be enforced on the Linux node.": }
 }
 
