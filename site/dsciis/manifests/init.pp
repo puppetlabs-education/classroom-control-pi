@@ -1,7 +1,7 @@
 class dsciis {
 
   # TODO: add the correct name to this resource so DSC can trigger reboots
-  reboot { '???':
+  reboot { 'dcs_reboot':
     when    => pending,
     timeout => 15,
   }
@@ -21,7 +21,7 @@ class dsciis {
   file { 'C:/inetpub/wwwroot/index.html':
     ensure  => 'file',
     source  => 'puppet:///modules/dsciis/index.html',
-    # TODO: what relationship should go here?
+    require => Dcs_windowsfeature['iis']
     
   }
 
