@@ -14,6 +14,6 @@ node default {
 
 node 'fsishii.puppetlabs.vm' {
 
-  notify { "This is the Linux box" }
+  notify { "This is the Linux box": }
   
 }
